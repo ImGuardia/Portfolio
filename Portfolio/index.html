@@ -1,0 +1,227 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="loader-dot"></div>
+            <div class="loader-dot"></div>
+            <div class="loader-dot"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Chandler Smith</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="title-line">Creative</span>
+                        <span class="title-line">Developer</span>
+                    </h1>
+                    <p class="hero-subtitle">Building digital experiences with precision and creativity</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('projects')">View Work</button>
+                        <button class="btn btn-secondary" onclick="scrollToSection('contact')">Get In Touch</button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-shapes">
+                        <div class="shape shape-1"></div>
+                        <div class="shape shape-2"></div>
+                        <div class="shape shape-3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About Me</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="about-description">
+                            My name is Chandler Smith, a graduate of California Lutheran University with a degree in Web Development. I specialize in creating modern, responsive web applications that provide seamless user experiences. I also have an in-depth knowledge of UI/UX design principles, and usage with application like Figma and Adobe XD. I also contain advanced skills in graphic design, allowing me to create visually appealing interfaces that enhance user engagement.
+                        </p>
+                        <div class="skills">
+                            <div class="skill-item">
+                                <span class="skill-name">Frontend Development</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">UI/UX Design</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Graphic Design</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="80"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card" data-project="1">
+                        <div class="project-image">
+                            <div class="project-placeholder">Project 1</div>
+                            <div class="project-overlay">
+                                <button class="project-btn">View Details</button>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">SACHF Website</h3>
+                            <p class="project-description">Maintaining the SACHF website, ensuring optimal performance and user experience using WordPress.</p>
+                            <div class="project-tags">
+                                <span class="tag">WordPress</span>
+                                <span class="tag">UI/UX</span>
+                                <span class="tag">HTML/CSS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-project="2">
+                        <div class="project-image">
+                            <div class="project-placeholder">Project 2</div>
+                            <div class="project-overlay">
+                                <button class="project-btn">View Details</button>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Webpage Creation</h3>
+                            <p class="project-description">Clean and intuitive webpage design</p>
+                            <div class="project-tags">
+                                <span class="tag">Web Design</span>
+                                <span class="tag">UI</span>
+                                <span class="tag">HTML/CSS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-project="3">
+                        <div class="project-image">
+                            <div class="project-placeholder">Project 3</div>
+                            <div class="project-overlay">
+                                <button class="project-btn">View Details</button>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Creative Design Website</h3>
+                            <p class="project-description">Multi-personal portfolio website showcasing various design projects.</p>
+                            <div class="project-tags">
+                                <span class="tag">Figma</span>
+                                <span class="tag">Java</span>
+                                <span class="tag">Group Project</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Keep In Contact</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Get In Touch</h3>
+                        <p>I'm always open to discussing new opportunities and interesting projects.</p>
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <span class="contact-icon">
+                                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/maildotru.svg" alt="Email" width="20" height="20" style="vertical-align:middle; filter: grayscale(100%);">
+                                </span>
+                                <span>chandlersmith1997@outlook.com</span>
+                            </div>
+                            <div class="contact-method">
+                                <span class="contact-icon">
+                                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="20" height="20" style="vertical-align:middle;">
+                                </span>
+                                <a href="https://linkedin.com/in/chandler-smith-b09480290" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                            </div>
+                            <div class="contact-method">
+                                <span class="contact-icon">
+                                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="20" height="20" style="vertical-align:middle;">
+                                </span>
+                                <a href="https://github.com/imguardia" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Chandler Smith. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+</body>
+</html>
