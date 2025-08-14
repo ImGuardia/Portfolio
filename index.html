@@ -44,20 +44,22 @@
             <div class="hero-container">
                 <div class="hero-content">
                     <h1 class="hero-title">
-                        <span class="title-line">Creative</span>
+                        <span class="title-line">Webpage</span>
                         <span class="title-line">Developer</span>
                     </h1>
-                    <p class="hero-subtitle">Building digital experiences with precision and creativity</p>
+                    <p class="hero-subtitle">Creating clean and modern web experiences through design and development.</p>
                     <div class="hero-buttons">
                         <button class="btn btn-primary" onclick="scrollToSection('projects')">View Work</button>
                         <button class="btn btn-secondary" onclick="scrollToSection('contact')">Get In Touch</button>
                     </div>
                 </div>
                 <div class="hero-visual">
-                    <div class="floating-shapes">
-                        <div class="shape shape-1"></div>
-                        <div class="shape shape-2"></div>
-                        <div class="shape shape-3"></div>
+                    <div class="hero-image-block">
+                        <img src="assets/facephoto.png" alt="Portrait" class="hero-facephoto" />
+                        <div class="hero-image-desc">
+                            <div class="hero-image-name">Chandler Smith</div>
+                            <div class="hero-image-title">UI Design and Web Developer</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -109,10 +111,11 @@
                 </div>
                 <div class="projects-grid">
                     <div class="project-card" data-project="1">
-                        <div class="project-image">
-                            <div class="project-placeholder">Project 1</div>
+                        <div class="project-image" style="background: url('assets/scanimage.png') center center/cover no-repeat;">
+                            <div class="project-placeholder" style="opacity:0;">Project 1</div>
                             <div class="project-overlay">
-                                <button class="project-btn">View Details</button>
+                                <a class="project-btn" href="https://scandinavianfest.org/" target="_blank" rel="noopener">Scan Fest</a>
+                                <a class="project-btn" href="https://scandinaviancenter.org/" target="_blank" rel="noopener">Scandinavian Center</a>
                             </div>
                         </div>
                         <div class="project-info">
@@ -122,41 +125,42 @@
                                 <span class="tag">WordPress</span>
                                 <span class="tag">UI/UX</span>
                                 <span class="tag">HTML/CSS</span>
+
                             </div>
                         </div>
                     </div>
 
                     <div class="project-card" data-project="2">
-                        <div class="project-image">
-                            <div class="project-placeholder">Project 2</div>
+                        <div class="project-image" style="background: url('assets/figma.png') center center/cover no-repeat;">
+                            <div class="project-placeholder" style="opacity:0;">Project 2</div>
                             <div class="project-overlay">
-                                <button class="project-btn">View Details</button>
+                                <a class="project-btn" href="https://www.figma.com/design/P1L0gnGmnxxG62cZGdn9Tx/SACHF-Website?node-id=0-1&t=LRvOOjnbp1snPedt-1" target="_blank" rel="noopener">Figma</a>
                             </div>
                         </div>
                         <div class="project-info">
                             <h3 class="project-title">Webpage Creation</h3>
                             <p class="project-description">Clean and intuitive webpage design</p>
                             <div class="project-tags">
-                                <span class="tag">Web Design</span>
+                                <span class="tag">Figma</span>
                                 <span class="tag">UI</span>
-                                <span class="tag">HTML/CSS</span>
+                                <span class="tag">Design</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="project-card" data-project="3">
-                        <div class="project-image">
-                            <div class="project-placeholder">Project 3</div>
+                        <div class="project-image" style="background: url('assets/backstories.png') center center/cover no-repeat;">
+                            <div class="project-placeholder" style="opacity:0;">Project 3</div>
                             <div class="project-overlay">
-                                <button class="project-btn">View Details</button>
+                                <a class="project-btn" href="https://imguardia.github.io/backstories.io/" target="_blank" rel="noopener">Backstories</a>
                             </div>
                         </div>
                         <div class="project-info">
                             <h3 class="project-title">Creative Design Website</h3>
-                            <p class="project-description">Multi-personal portfolio website showcasing various design projects.</p>
+                            <p class="project-description">Multi-personal website project showcasing various design projects.</p>
                             <div class="project-tags">
-                                <span class="tag">Figma</span>
-                                <span class="tag">Java</span>
+                                <span class="tag">Web Development</span>
+                                <span class="tag">Advanced Code</span>
                                 <span class="tag">Group Project</span>
                             </div>
                         </div>
@@ -175,13 +179,13 @@
                 <div class="contact-content">
                     <div class="contact-info">
                         <h3>Get In Touch</h3>
-                        <p>I'm always open to discussing new opportunities and interesting projects.</p>
+                        <p>Connect with me on other platforms or send a message via email.</p>
                         <div class="contact-methods">
                             <div class="contact-method">
                                 <span class="contact-icon">
                                     <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/maildotru.svg" alt="Email" width="20" height="20" style="vertical-align:middle; filter: grayscale(100%);">
                                 </span>
-                                <span>chandlersmith1997@outlook.com</span>
+                                <a href="mailto:chandlersmith1997@outlook.com" class="contact-method-link">chandlersmith1997@outlook.com</a>
                             </div>
                             <div class="contact-method">
                                 <span class="contact-icon">
@@ -197,23 +201,10 @@
                             </div>
                         </div>
                     </div>
-                    <form class="contact-form" id="contact-form">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
                 </div>
             </div>
         </section>
     </main>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">

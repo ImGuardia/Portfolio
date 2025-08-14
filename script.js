@@ -17,7 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeApp();
 });
 
-// Main initialization function
+/**
+ * Main initialization function. Sets up all features and event listeners for the portfolio site.
+ */
 function initializeApp() {
     // Hide loader after page load
     window.addEventListener('load', hideLoader);
@@ -47,7 +49,9 @@ function initializeApp() {
     setupSkillBars();
 }
 
-// Loader animation (this one hides the loader animation after it has finished)
+/**
+ * Hides the loader animation after the page has loaded.
+ */
 function hideLoader() {
     setTimeout(() => {
         loader.classList.add('fade-out');
@@ -58,6 +62,9 @@ function hideLoader() {
 }
 
 // Navigation setup
+/**
+ * Sets up navigation menu, hamburger toggle, scroll spy, and nav background changes on scroll.
+ */
 function setupNavigation() {
     // Hamburger menu toggle (this one is for the mobile menu toggle)
     hamburger.addEventListener('click', toggleMobileMenu);
@@ -76,18 +83,28 @@ function setupNavigation() {
     window.addEventListener('scroll', throttle(updateNavBackground, 100));
 }
 
+/**
+ * Toggles the mobile navigation menu and body scroll lock.
+ */
 function toggleMobileMenu() {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
     document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
 }
 
+/**
+ * Closes the mobile navigation menu and restores body scroll.
+ */
 function closeMobileMenu() {
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
     document.body.style.overflow = '';
 }
 
+/**
+ * Handles navigation link clicks for smooth scrolling and menu closing.
+ * @param {Event} e - The click event
+ */
 function handleNavClick(e) {
     e.preventDefault();
     const targetId = e.target.getAttribute('href').substring(1);
@@ -95,6 +112,9 @@ function handleNavClick(e) {
 }
 
 // Scroll spy functionality
+/**
+ * Updates the active navigation link based on scroll position (scroll spy).
+ */
 function updateScrollSpy() {
     const sections = document.querySelectorAll('section');
     const scrollPos = window.scrollY + 100;
@@ -111,6 +131,10 @@ function updateScrollSpy() {
     });
 }
 
+/**
+ * Sets the active class on the navigation link matching the current section.
+ * @param {string} activeId - The id of the active section
+ */
 function updateActiveNavLink(activeId) {
     document.querySelectorAll('.nav-link').forEach(link => {
         link.classList.remove('active');
@@ -121,6 +145,9 @@ function updateActiveNavLink(activeId) {
 }
 
 // Scroll progress bar
+/**
+ * Updates the scroll progress bar width based on scroll position.
+ */
 function updateScrollProgress() {
     const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrolled = (window.scrollY / windowHeight) * 100;
@@ -128,6 +155,9 @@ function updateScrollProgress() {
 }
 
 // Navigation background on scroll
+/**
+ * Changes the navigation bar background when scrolling past a threshold.
+ */
 function updateNavBackground() {
     if (window.scrollY > 50) {
         nav.classList.add('scrolled');
@@ -137,6 +167,10 @@ function updateNavBackground() {
 }
 
 // Smooth scrolling function
+/**
+ * Smoothly scrolls to a section by id, offsetting for the nav bar.
+ * @param {string} targetId - The id of the section to scroll to
+ */
 function scrollToSection(targetId) {
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
@@ -150,6 +184,9 @@ function scrollToSection(targetId) {
 }
 
 // Smooth scrolling setup
+/**
+ * Enables smooth scrolling for anchor links.
+ */
 function setupSmoothScrolling() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -161,6 +198,9 @@ function setupSmoothScrolling() {
 }
 
 // Intersection Observer for scroll animations
+/**
+ * Sets up Intersection Observer to animate elements as they enter the viewport.
+ */
 function setupIntersectionObserver() {
     const observerOptions = {
         threshold: 0.1,
@@ -203,6 +243,9 @@ function setupIntersectionObserver() {
 }
 
 // Skill bar animation
+/**
+ * Sets up Intersection Observer to animate skill bars when they enter the viewport.
+ */
 function setupSkillBars() {
     const skillObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -224,6 +267,10 @@ function setupSkillBars() {
     });
 }
 
+/**
+ * Animates a single skill bar to its target width.
+ * @param {Element} skillItem - The skill item element
+ */
 function animateSkillBar(skillItem) {
     const progressBar = skillItem.querySelector('.skill-progress');
     const width = progressBar.getAttribute('data-width');
@@ -234,6 +281,10 @@ function animateSkillBar(skillItem) {
 }
 
 // Project card animations
+/**
+ * Animates a project card with a staggered fade-in effect.
+ * @param {Element} card - The project card element
+ */
 function animateProjectCard(card) {
     const delay = Array.from(card.parentNode.children).indexOf(card) * 100;
     
@@ -244,6 +295,9 @@ function animateProjectCard(card) {
 }
 
 // Form handling (for contact form submission)
+/**
+ * Sets up contact form submission and input focus animations.
+ */
 function setupFormHandling() {
     contactForm.addEventListener('submit', handleFormSubmit);
     
@@ -262,6 +316,10 @@ function setupFormHandling() {
     });
 }
 
+/**
+ * Handles contact form submission, simulates sending, and resets the form.
+ * @param {Event} e - The form submit event
+ */
 function handleFormSubmit(e) {
     e.preventDefault();
     
@@ -289,6 +347,9 @@ function handleFormSubmit(e) {
 }
 
 // Keyboard navigation
+/**
+ * Enables keyboard navigation: closes menu on Escape, navigates sections with Alt+Arrow keys.
+ */
 function setupKeyboardNavigation() {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
@@ -309,40 +370,17 @@ function setupKeyboardNavigation() {
     });
 }
 
-// Parallax effect for floating shapes
+// Parallax effect for floating shapes removed
+/**
+ * (Placeholder) Sets up parallax effect for floating shapes (currently not used).
+ */
 function setupParallaxEffect() {
-    const shapes = document.querySelectorAll('.shape');
-    
-    document.addEventListener('mousemove', throttle((e) => {
-        const mouseX = e.clientX / window.innerWidth;
-        const mouseY = e.clientY / window.innerHeight;
-        
-        shapes.forEach((shape, index) => {
-            const speed = (index + 1) * 0.5;
-            const x = (mouseX - 0.5) * speed * 50;
-            const y = (mouseY - 0.5) * speed * 50;
-            
-            shape.style.transform = `translate(${x}px, ${y}px) rotate(${x * 0.5}deg)`;
-        });
-    }, 16));
+    // No floating shapes to animate
 }
 
-// Advanced scroll effects
+// Advanced scroll effects (floating shapes removed)
 window.addEventListener('scroll', throttle(() => {
-    const scrolled = window.pageYOffset;
-    const heroContent = document.querySelector('.hero-content');
-    const shapes = document.querySelectorAll('.shape');
-    
-    // Parallax for hero content
-    if (heroContent) {
-        heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-    
-    // Parallax for shapes
-    shapes.forEach((shape, index) => {
-        const speed = (index + 1) * 0.3;
-        shape.style.transform += ` translateY(${scrolled * speed}px)`;
-    });
+    // No floating shapes to animate
 }, 16));
 
 // Project card hover effects
@@ -357,6 +395,12 @@ document.querySelectorAll('.project-card').forEach(card => {
 });
 
 // Utility functions (Apparently this is used to maintain performance and prevent excessive function calls, think of it like adding a funnel and valve to flowing water)
+/**
+ * Throttles a function so it only runs once per limit interval.
+ * @param {Function} func - The function to throttle
+ * @param {number} limit - The time interval in ms
+ * @returns {Function}
+ */
 function throttle(func, limit) {
     let inThrottle;
     return function() {
@@ -370,6 +414,13 @@ function throttle(func, limit) {
     };
 }
 
+/**
+ * Debounces a function so it only runs after a delay since the last call.
+ * @param {Function} func - The function to debounce
+ * @param {number} wait - The delay in ms
+ * @param {boolean} immediate - If true, run at the start
+ * @returns {Function}
+ */
 function debounce(func, wait, immediate) {
     let timeout;
     return function() {
@@ -386,6 +437,12 @@ function debounce(func, wait, immediate) {
 }
 
 // Performance optimization (this one is a must for performance, especially with animations and scroll effects, not entirely sure how it works but I looked it up and it seems to be a good idea)
+/**
+ * Polyfill for requestIdleCallback for performance optimization.
+ * @param {Function} callback - The function to run when the browser is idle
+ * @param {Object} options - Options for requestIdleCallback
+ * @returns {number}
+ */
 function requestIdleCallback(callback, options = {}) {
     if ('requestIdleCallback' in window) {
         return window.requestIdleCallback(callback, options);
@@ -403,6 +460,9 @@ function requestIdleCallback(callback, options = {}) {
 }
 
 // Preload critical resources (e.g., fonts and styles) 
+/**
+ * Preloads critical resources (fonts, styles) for faster page load.
+ */
 function preloadResources() {
     const criticalResources = [
         'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap'
@@ -421,6 +481,10 @@ function preloadResources() {
 preloadResources();
 
 // Add smooth reveal animation for text (this one is for the text animations, it looks really nice)
+/**
+ * Animates text by revealing each character with a fade and slide effect.
+ * @param {Element} element - The text element to animate
+ */
 function animateText(element) {
     const text = element.textContent;
     element.textContent = '';
@@ -441,6 +505,9 @@ function animateText(element) {
 }
 
 // Enhanced loading animation (this one adds a nice touch to the loading experience, always wanted to do this)
+/**
+ * Creates a ripple loading animation inside the loader element.
+ */
 function createLoadingAnimation() {
     const loader = document.querySelector('.loader-content');
     if (loader) {
