@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeApp();
 });
 
+// JS bubble animation removed in favor of CSS-only keyframe animation on .hero-facephoto
+
 /**
  * Main initialization function. Sets up all features and event listeners for the portfolio site.
  */
@@ -509,12 +511,10 @@ function animateText(element) {
  * Creates a ripple loading animation inside the loader element.
  */
 function createLoadingAnimation() {
-    const loader = document.querySelector('.loader-content');
-    if (loader) {
-        // Add ripple effect
+    const rippleContainer = document.querySelector('.loader-ripple');
+    if (rippleContainer) {
         const ripple = document.createElement('div');
         ripple.style.cssText = `
-            position: absolute;
             width: 40px;
             height: 40px;
             border: 2px solid var(--accent-color);
@@ -522,7 +522,7 @@ function createLoadingAnimation() {
             animation: ripple 1.5s infinite;
             opacity: 0.3;
         `;
-        loader.appendChild(ripple);
+        rippleContainer.appendChild(ripple);
     }
 }
 
