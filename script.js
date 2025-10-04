@@ -1,4 +1,7 @@
-// Portfolio JavaScript. This one I had to look up a lot of stuff for because I wanted to add advanced animations and interactions, and I'm still learning JavaScript. This script handles the more advanced features of the portfolio, including animations, scroll effects, and form handling that CSS cant handle or do on its own.
+// Portfolio JavaScript. 
+// This one I had to look up a lot of stuff for because I wanted to add advanced animations and interactions, 
+// and I'm still learning JavaScript. This script handles the more advanced features of the portfolio, including animations, 
+// scroll effects, and form handling that CSS cant handle or do on its own.
 
 // DOM Elements
 const loader = document.getElementById('loader');
@@ -16,8 +19,6 @@ let currentSection = 'home';
 document.addEventListener('DOMContentLoaded', function() {
     initializeApp();
 });
-
-// JS bubble animation removed in favor of CSS-only keyframe animation on .hero-facephoto
 
 /**
  * Main initialization function. Sets up all features and event listeners for the portfolio site.
@@ -348,29 +349,6 @@ function handleFormSubmit(e) {
     }, 1500);
 }
 
-// Keyboard navigation
-/**
- * Enables keyboard navigation: closes menu on Escape, navigates sections with Alt+Arrow keys.
- */
-function setupKeyboardNavigation() {
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeMobileMenu();
-        }
-
-        // Arrow key navigation through sections (this was cool, so people can be a bit lazy when navigating)
-        if (e.altKey) {
-            const sections = ['home', 'about', 'projects', 'contact'];
-            const currentIndex = sections.indexOf(currentSection);
-            
-            if (e.key === 'ArrowDown' && currentIndex < sections.length - 1) {
-                scrollToSection(sections[currentIndex + 1]);
-            } else if (e.key === 'ArrowUp' && currentIndex > 0) {
-                scrollToSection(sections[currentIndex - 1]);
-            }
-        }
-    });
-}
 
 // Parallax effect for floating shapes removed
 /**
@@ -395,71 +373,6 @@ document.querySelectorAll('.project-card').forEach(card => {
         card.style.transform = 'translateY(0) scale(1)';
     });
 });
-
-// Utility functions (Apparently this is used to maintain performance and prevent excessive function calls, think of it like adding a funnel and valve to flowing water)
-/**
- * Throttles a function so it only runs once per limit interval.
- * @param {Function} func - The function to throttle
- * @param {number} limit - The time interval in ms
- * @returns {Function}
- */
-function throttle(func, limit) {
-    let inThrottle;
-    return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    };
-}
-
-/**
- * Debounces a function so it only runs after a delay since the last call.
- * @param {Function} func - The function to debounce
- * @param {number} wait - The delay in ms
- * @param {boolean} immediate - If true, run at the start
- * @returns {Function}
- */
-function debounce(func, wait, immediate) {
-    let timeout;
-    return function() {
-        const context = this, args = arguments;
-        const later = function() {
-            timeout = null;
-            if (!immediate) func.apply(context, args);
-        };
-        const callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
-    };
-}
-
-// Performance optimization (this one is a must for performance, especially with animations and scroll effects, not entirely sure how it works but I looked it up and it seems to be a good idea)
-/**
- * Polyfill for requestIdleCallback for performance optimization.
- * @param {Function} callback - The function to run when the browser is idle
- * @param {Object} options - Options for requestIdleCallback
- * @returns {number}
- */
-function requestIdleCallback(callback, options = {}) {
-    if ('requestIdleCallback' in window) {
-        return window.requestIdleCallback(callback, options);
-    } else {
-        return setTimeout(() => {
-            const start = Date.now();
-            callback({
-                didTimeout: false,
-                timeRemaining() {
-                    return Math.max(0, 50 - (Date.now() - start));
-                }
-            });
-        }, 1);
-    }
-}
 
 // Preload critical resources (e.g., fonts and styles) 
 /**
@@ -544,9 +457,9 @@ const style = document.createElement('style');
 style.textContent = rippleKeyframes;
 document.head.appendChild(style);
 
-// Initialize enhanced loading (to ensure the loading animation is started)
+// Ensure the loading animation is started
 createLoadingAnimation();
 
-// Export functions for global access (Edge for some reason needs this)
+// Export functions for common use
 window.scrollToSection = scrollToSection;
 window.toggleMobileMenu = toggleMobileMenu;
