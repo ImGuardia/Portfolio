@@ -37,30 +37,6 @@
     border: 6px solid var(--accent-color);
     box-shadow: 0 8px 32px rgba(0,0,0,0.25);
     background: #232336;
-    transition: border-radius 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* CSS-only bubble animation for constant, smooth effect */
-@keyframes bubble {
-    0% {
-        border-radius: 50% 50% 40% 60% / 60% 40% 50% 50%;
-    }
-    25% {
-        border-radius: 58% 42% 32% 68% / 66% 36% 56% 42%;
-    }
-    50% {
-        border-radius: 42% 58% 48% 52% / 52% 56% 44% 48%;
-    }
-    75% {
-        border-radius: 48% 44% 36% 72% / 62% 38% 50% 50%;
-    }
-    100% {
-        border-radius: 50% 50% 40% 60% / 60% 40% 50% 50%;
-    }
-}
-
-.hero-facephoto {
-    animation: bubble 6s ease-in-out infinite;
 }
 /* Animated Hero Icons */
 /* Reset and Base Styles */
